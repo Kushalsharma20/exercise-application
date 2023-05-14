@@ -4,7 +4,7 @@ import appActions from "../actions/actions";
 
 function* getExercises() {
   try {
-    const result = yield axios.get("http://localhost:4000/exercises");
+    const result = yield axios.get("http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/exercises");
     yield put({ type: appActions.GET_EXERCISES_SUCCESS, payload: result.data });
   } catch (error) {
     yield put({ type: appActions.GET_EXERCISES_ERROR, payload: error });
@@ -17,7 +17,7 @@ function* watchGetExercisesRequest() {
 
 function* getUsers() {
   try {
-    const result = yield axios.get("http://localhost:4000/users");
+    const result = yield axios.get("http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/users");
     yield put({ type: appActions.GET_USERS_SUCCESS, payload: result.data });
   } catch (error) {
     yield put({ type: appActions.GET_USERS_ERROR, payload: error });
@@ -31,7 +31,7 @@ function* watchGetUsersRequest() {
 function* addExercise(action) {
   try {
     const result = yield axios.post(
-      "http://localhost:4000/exercises/add",
+      "http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/exercises/add",
       action.exercise
     );
     yield put({ type: appActions.ADD_EXERCISE_SUCCESS, payload: result.data });
@@ -48,7 +48,7 @@ function* watchAddExerciseRequest() {
 function* deleteExercise(action) {
   try {
     const result = yield axios.delete(
-      `http://localhost:4000/exercises/${action.id}`
+      `http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/exercises/${action.id}`
     );
     yield put({
       type: appActions.DELETE_EXERCISE_SUCCESS,
@@ -67,7 +67,7 @@ function* watchDeleteExerciseRequest() {
 function* updateExercise({ id, exercise }) {
   try {
     const result = yield axios({
-      url: `http://localhost:4000/exercises/update/${id}`,
+      url: `http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/exercises/update/${id}`,
       method: "post",
       data: exercise,
     });
@@ -88,7 +88,7 @@ function* watchUpdateExerciseRequest() {
 function* addUser(action) {
   try {
     const result = yield axios.post(
-      "http://localhost:4000/users/add",
+      "http://exercise-backend1-dev2.eu-north-1.elasticbeanstalk.com/users/add",
       action.user
     );
     yield put({ type: appActions.ADD_USER_SUCCESS, payload: result.data });
