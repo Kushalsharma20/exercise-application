@@ -110,7 +110,7 @@ const CreateUser = () => {
                 </button>
               ) : (
                 <button type="submit" className="btn btn-primary">
-                  Create User
+                  Create 
                 </button>
               )}
             </div>
